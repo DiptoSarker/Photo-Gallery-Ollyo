@@ -17,12 +17,15 @@ import {
 import { Grid } from "./Grid";
 import { SortablePhoto } from "./SortablePhoto";
 import { Photo } from "./Photo";
-import photos from "./photos.json";
 
-const UploadGallery = () => {
-  const [items, setItems] = useState(photos);
+const UploadGallery = ({ selected, handleSelect, items, setItems }) => {
   const [activeId, setActiveId] = useState(null);
-  const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
+  const mouseSensor = useSensor(MouseSensor, {
+    activationConstraint: {
+      distance: 10,
+    },
+  });
+  const sensors = useSensors(mouseSensor, useSensor(TouchSensor));
 
   return (
     <DndContext
@@ -35,7 +38,13 @@ const UploadGallery = () => {
       <SortableContext items={items} strategy={rectSortingStrategy}>
         <Grid columns={5}>
           {items.map((url, index) => (
-            <SortablePhoto key={url} url={url} index={index} />
+            <SortablePhoto
+              key={url}
+              url={url}
+              index={index}
+              selected={selected.includes(index)}
+              handleSelect={() => handleSelect(index)}
+            />
           ))}
         </Grid>
       </SortableContext>

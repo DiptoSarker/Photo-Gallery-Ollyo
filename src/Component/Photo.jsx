@@ -1,9 +1,8 @@
 import React, { forwardRef, useState } from "react";
 
 export const Photo = forwardRef(
-  ({ url, index, faded, style, ...props }, ref) => {
+  ({ url, index, faded, style, selected, handleSelect, ...props }, ref) => {
     const [isHovered, setIsHovered] = useState(false);
-    const [isClicked, setIsClicked] = useState(false);
 
     const handleMouseEnter = () => {
       setIsHovered(true);
@@ -14,10 +13,10 @@ export const Photo = forwardRef(
     };
 
     const handleClick = () => {
-      setIsClicked(!isClicked);
+      handleSelect();
     };
 
-    const checkmarkColor = isClicked ? "blue" : "white";
+    // const checkmarkColor = selected ? "blue" : "white";
 
     const inlineStyles = {
       opacity: faded ? "0.2" : "1",
@@ -43,9 +42,11 @@ export const Photo = forwardRef(
       top: "15px",
       left: "15px",
       fontSize: "1.5rem",
-      color: isClicked ? "blue" : "red",
-      visibility: isHovered ? "visible" : "hidden",
+      color: selected ? "blue" : "red",
+      // visibility: (isHovered && !selected) ? "visible" : "hidden",
     };
+
+    console.log({ props });
 
     return (
       <div
@@ -54,11 +55,15 @@ export const Photo = forwardRef(
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onClick={handleClick}
+        data-no-dnd="true"
         {...props}
+        // onMouseDown={handleClick}
       >
-        <div className="checkmark" style={checkmarkStyles}>
-          ✔
-        </div>
+        {(selected || isHovered) && (
+          <div className="checkmark" style={checkmarkStyles}>
+            ✔
+          </div>
+        )}
       </div>
     );
   }
