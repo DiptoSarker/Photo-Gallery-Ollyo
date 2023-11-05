@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import EveryThing from "./EveryThing";
+import { motion } from "framer-motion";
 import "../Styles/container.css";
 import photos from "./photos.json";
 
@@ -16,7 +17,7 @@ const Container = () => {
     }
   };
 
-  console.log({ selected });
+  // console.log({ selected });
 
   const onDelete = () => {
     setItems(items.filter((_item, ind) => !selected.includes(ind)));
@@ -24,21 +25,27 @@ const Container = () => {
     setSelected([]);
   };
 
-  console.log({ items });
+  // console.log({ items });
 
   return (
     <div className="container">
       <div className="navbar">
         <span>
           {!selected.length
-            ? "Gallery"
+            ? "Gallery App"
             : selected.length === 1
-            ? "1 item selected"
-            : `${selected.length} items selected`}
+            ? "1 File selected"
+            : `${selected.length} Files selected`}
         </span>
-        <button disabled={!selected.length} onClick={onDelete}>
-          Delete
-        </button>
+
+        <motion.button
+          style={{ display: selected.length ? "block" : "none" }}
+          onClick={onDelete}
+          whileHover={{ scale: 0.8 }}
+          whileTap={{ scale: 0.8 }}
+        >
+          {selected.length === 1 ? "Delete File" : "Delete Files"}
+        </motion.button>
       </div>
       <div className="all">
         <EveryThing

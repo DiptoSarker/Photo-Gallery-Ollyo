@@ -1,0 +1,42 @@
+.upload-image-container {
+  border-radius: 9px;
+  /* padding: 20px; */
+  border: 1px dotted rgb(181, 181, 181);
+  background-color: rgb(255, 255, 255);
+}
+
+.upload-image-container:hover {
+  border: 1px solid black;
+  background-color: rgb(227, 227, 227);
+}
+
+.upload-logo {
+  scale: 1.5;
+
+  margin-bottom: 5%;
+  display: block;
+}
+
+.upload-label {
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  /* margin: auto; */
+}
+
+.upload-input {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .upload-image-container {
+    height: 198px;
+  }
+}

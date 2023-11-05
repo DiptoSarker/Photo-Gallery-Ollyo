@@ -42,7 +42,7 @@ export const Photo = forwardRef(
       top: "15px",
       left: "15px",
       fontSize: "1.5rem",
-      color: selected ? "blue" : "red",
+      color: selected ? "blue" : "#8ed9e8",
       // visibility: (isHovered && !selected) ? "visible" : "hidden",
     };
 

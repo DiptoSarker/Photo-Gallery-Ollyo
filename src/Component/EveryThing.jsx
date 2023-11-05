@@ -17,6 +17,7 @@ import {
 import { Grid } from "./Grid";
 import { SortablePhoto } from "./SortablePhoto";
 import { Photo } from "./Photo";
+import Upload from "./Upload";
 
 const UploadGallery = ({ selected, handleSelect, items, setItems }) => {
   const [activeId, setActiveId] = useState(null);
@@ -46,6 +47,7 @@ const UploadGallery = ({ selected, handleSelect, items, setItems }) => {
               handleSelect={() => handleSelect(index)}
             />
           ))}
+          <Upload />
         </Grid>
       </SortableContext>
 
