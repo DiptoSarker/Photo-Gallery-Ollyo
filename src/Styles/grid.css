@@ -6,17 +6,17 @@
   padding: 20px;
 }
 
+/* -------------- Responsive Design ------------------------ */
+
 @media (max-width: 1180px) {
   .gallery {
     grid-template-columns: repeat(auto-fill, minmax(16%, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(12.5%, 1fr));
   }
 }
 
 @media (max-width: 1020px) {
   .gallery {
     grid-template-columns: repeat(auto-fill, minmax(26%, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(17.5%, 1fr));
     grid-gap: 10px;
   }
 }
@@ -24,7 +24,6 @@
 @media (max-width: 728px) {
   .gallery {
     grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(18.5%, 1fr));
     grid-gap: 10px;
   }
 }
@@ -32,7 +31,6 @@
 @media (max-width: 600px) {
   .gallery {
     grid-template-columns: repeat(auto-fill, minmax(35%, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(18.5%, 1fr));
     grid-gap: 10px;
   }
 }
@@ -40,7 +38,6 @@
 @media (max-width: 411px) {
   .gallery {
     grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(18.5%, 1fr));
     grid-gap: 10px;
   }
 }

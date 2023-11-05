@@ -7,7 +7,7 @@ const Upload = () => {
     <div class="upload-image-container">
       <label for="image-upload" class="upload-label">
         <GrGallery class="upload-logo" />
-        <span> Add Image</span>
+        <span> Add Images</span>
       </label>
 
       <input
