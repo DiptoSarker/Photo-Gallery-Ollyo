@@ -41,7 +41,7 @@ const Container = () => {
         <motion.button
           style={{ display: selected.length ? "block" : "none" }}
           onClick={onDelete}
-          whileHover={{ scale: 0.8 }}
+          whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.8 }}
         >
           {selected.length === 1 ? "Delete File" : "Delete Files"}
